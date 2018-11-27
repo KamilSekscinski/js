@@ -20,6 +20,7 @@ const $btn18 = document.getElementById('btn18');
 
 
 const myArray = [1,2,3,15,40,55,300];
+
 //zad1 dodanie na koniec tablicy liczby wpisanej w polu tekstowym 
 //(jeśli nie wprowadzono prawidłowej wartości numerycznej, dodawana jest losowa wartość z przedziału 1-20)
 $btn1.addEventListener('click', function (){
@@ -82,7 +83,7 @@ function updateMyArray3 () {
     myArray.pop();
 
     $result.textContent = myArray;
-    
+
 }
 function showMessage3() {
     const $message = document.getElementById('message');
@@ -104,7 +105,7 @@ function updateMyArray4 () {
     myArray.shift();
 
     $result.textContent = myArray;
-    
+
 }
 function showMessage4() {
     const $message = document.getElementById('message');
@@ -153,7 +154,7 @@ function updateMyArray6 (value) {
     if (isNaN(value)) {
         value = Math.floor(Math.random()*myArray.length);
     }
-    
+
     myArray.splice(value, 1);
 
     $result.textContent = myArray;
@@ -281,40 +282,127 @@ function showMessage13() {
 }
 
 function suma(last, curr) {
-        
+
         return last + curr;
-        
+
         }
 
 // zad. 14 - każdą wartość w tablicy pomnóż przez wartość wpisaną w polu tekstowym 
 // (lub 2, jeśli nie wprowadzono liczby) - wykorzystaj metodę map
 
-// $btn14.addEventListener('click', function (){
-//     const valueFromField = $field.value;
-//     updateMyArray14(valueFromField);
-// });
+$btn14.addEventListener('click', function (){
+    let val = $field.value;
+    updateMyArray14(val);
+    console.log("pomnożono przez " + val)
+});
 
-// function updateMyArray14 (value) {
-//     const $result = document.getElementById('result'); 
-//     value = parseFloat(value);
-
-//     if (isNaN(value)) {
-//         value = 2;
-//     }
+function updateMyArray14 (value) {
+    const $result = document.getElementById('result'); 
+    let myArrayX = myArray.map(pomnoz);
+    $result.textContent = myArrayX;
     
+}
+
+function pomnoz (value) {
+    let val = $field.value;
+    val = parseFloat(val);
+    if (isNaN(val)) {
+        return 2 * value;
+    }
+    return val * value;
     
-//     let myArrayX = myArray.map(pomnoz);
+}
 
-//     $result.textContent = myArrayX;
-//     showMessage14(value)
-// }
 
-// function pomnoz (val, value) {
-//     return val * value;
-// }
+//zad. 15 - to samo co wyżej tylko dzielenie
 
-// function showMessage14(value) {
-//     const $message = document.getElementById('message');
-//     const textMsg = `pomnożono przez ${value}.`
-//     $message.textContent = textMsg;
-// }
+$btn15.addEventListener('click', function (){
+    let val = $field.value;
+    updateMyArray15(val);
+    console.log("podzielono przez " + val)
+});
+
+function updateMyArray15 (value) {
+    const $result = document.getElementById('result'); 
+    let myArrayX = myArray.map(podziel);
+    $result.textContent = myArrayX;
+    
+}
+
+function podziel (value) {
+    let val = $field.value;
+    val = parseFloat(val);
+    if (isNaN(val)) {
+        return value/2;
+    }
+    return value/val;
+    
+}
+
+
+//zad. 16 - dodawaniem (dodaj 1 jeśli w polu tekstowym nie wprowadzono liczby)
+
+$btn16.addEventListener('click', function (){
+    let val = $field.value;
+    updateMyArray16(val);
+    console.log("dodano " + val)
+});
+
+function updateMyArray16 (value) {
+    const $result = document.getElementById('result'); 
+    let myArrayX = myArray.map(dodaj);
+    $result.textContent = myArrayX;
+    
+}
+
+function dodaj (value) {
+    let val = $field.value;
+    val = parseFloat(val);
+    if (isNaN(val)) {
+        return value + 1;
+    }
+    return value + val;
+    
+}
+
+// zad.17 - odejmowaniem
+
+$btn17.addEventListener('click', function (){
+    let val = $field.value;
+    updateMyArray17(val);
+    console.log("odjęto " + val)
+});
+
+function updateMyArray17 (value) {
+    const $result = document.getElementById('result'); 
+    let myArrayX = myArray.map(odejmij);
+    $result.textContent = myArrayX;
+    
+}
+
+function odejmij (value) {
+    let val = $field.value;
+    val = parseFloat(val);
+    if (isNaN(val)) {
+        return value - 1;
+    }
+    return value - val;
+}
+
+// zad. 18 - zaokrąglij wszystkie wartości do najbliższej wartości całkowitej (wykorzystaj metodę map)
+
+$btn18.addEventListener('click', function (){
+    let val = $field.value;
+    updateMyArray18(val);
+});
+
+function updateMyArray18 (value) {
+    const $result = document.getElementById('result'); 
+    let myArrayX = myArray.map(round);
+    $result.textContent = myArrayX;
+    
+}
+
+function round (x) {
+    return Math.round(x);
+}
