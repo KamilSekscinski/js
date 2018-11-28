@@ -30,6 +30,50 @@ const kolory = ["red", "green", "blue", "orange"];
 liEl[i].style.color = kolory[Math.floor(Math.random() * kolory.length)];
 //6. po kliknięciu lewym przyciskiem myszy, ustaw jego tło na kolor 
 //lightcyan jeśli to miesiąc parzysty lub na lightblue, jeśli nieparzysty 
+
+//8. Jeśli jeszcze raz klikniemy LEWYM przyciskiem w miesiąc, którego kolor 
+//już został ustawiony na lightcyan lub lighblue (lub PRAWYM, jeśli kolor został ustawiony na 
+//lightpink lub lightyellow), wraca on do pierwotnego stanu (ma to działać jak przełącznik).
+liEl[i].onclick = function() {
+  //czyścimy jak ustawione
+  if (this.style.backgroundColor === "lightcyan" || this.style.backgroundColor === "lightblue") {
+    this.style.backgroundColor = null
+  }
+  //kolorujemy
+  else if(this.className === "parzysty") {
+    this.style.backgroundColor = "lightcyan";
+  }
+  else {
+    this.style.backgroundColor = "lightblue";
+  }
+
+};
+//7. po kliknięciu prawym, ustaw lightyellow jeśli parzysty 
+// lub lightpink jeśli nieparzysty
+
+//8. Jeśli jeszcze raz klikniemy LEWYM przyciskiem w miesiąc, którego kolor 
+//już został ustawiony na lightcyan lub lighblue (lub PRAWYM, jeśli kolor został ustawiony na 
+//lightpink lub lightyellow), wraca on do pierwotnego stanu (ma to działać jak przełącznik).
+
+liEl[i].onauxclick = function() {
+  //czyścimy jak ustawione
+  if (this.style.backgroundColor === "lightyellow" || this.style.backgroundColor === "lightpink") {
+    this.style.backgroundColor = null
+  }
+  //kolorujemy
+  else if(this.className === "parzysty") {
+    this.style.backgroundColor = "lightyellow";
+  }
+  else {
+    this.style.backgroundColor = "lightpink";
+  }
+
+};
+// aby nie wyskakiwało menu kontekstowe
+document.oncontextmenu = function (ev) {
+  ev.preventDefault()
+}
+
 }
 let $liItemWithTest = document.querySelectorAll('li.test');
 $liItemWithTest = [...$liItemWithTest];
