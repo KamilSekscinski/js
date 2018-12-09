@@ -2,3 +2,15 @@
 .hide {
     display: none;
 }
+.usun {
+    margin: 0 5px 5px 25px;
+}
+.wyk {
+    margin: 0 5px 5px 25px;
+}
+.niewyk {
+    margin: 0 5px 5px 25px;
+}
+.legWyk {
+    background-color: green;
+}

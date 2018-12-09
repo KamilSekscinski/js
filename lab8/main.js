@@ -5,25 +5,40 @@ document.forms.form.onsubmit = function () {
         const li = document.createElement("li");
         li.innerHTML = this.text.value;
         document.getElementById('lista').appendChild(li);
-        
-        const bt = document.createElement("button");
-        
+        //do edycji
         li.contentEditable = true;
+        //button usuń
+        const bt = document.createElement("button");
         li.appendChild(bt);
+        const btText = document.createTextNode('usuń');
+        bt.appendChild(btText);
+        bt.setAttribute("class", "usun");
 
-        bt.onclick = function() {
+        bt.onclick = function() { 
             lista.removeChild(li);
 
         };
-    //     li.onlick = function () {
-    //         li.setAttribute(contentEditable, true);
-    // };
+
+        //button wykonane
+        const btWyk = document.createElement("button");
+        li.appendChild(btWyk);
+        const btWykText = document.createTextNode('Wykonane');
+        btWyk.appendChild(btWykText);
+        // btWyk.setAttribute("class", "wyk");
+
+        btWyk.onclick = function wyk() {
+            // li.dataset.status = "wykonano"
+            
+            this.style.backgroundColor = "green";
+            
+        }
+        
+
+ 
 
     return false
-}
-// function usun () {
-//     this.parentNode.removeChild(this);
-// }
+    }
+
 }
 
 
