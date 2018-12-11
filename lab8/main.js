@@ -1,45 +1,45 @@
 
+
+
 document.forms.form.onsubmit = function () {
     console.log(this.text.value);
     if (this.text.value) {
-        const li = document.createElement("li");
-        li.innerHTML = this.text.value;
-        document.getElementById('lista').appendChild(li);
+        const li2 = document.createElement("li");
+        li2.innerHTML = this.text.value;
+        document.getElementById('lista').appendChild(li2);
         //do edycji
-        li.contentEditable = true;
+        // li2.contentEditable = true;
         //button usuń
         const bt = document.createElement("button");
-        li.appendChild(bt);
+        li2.appendChild(bt);
         const btText = document.createTextNode('usuń');
         bt.appendChild(btText);
         bt.setAttribute("class", "usun");
 
         bt.onclick = function() { 
-            lista.removeChild(li);
-
+            if (confirm ('Usunąć?')) {
+                lista.removeChild(li2);
+            }
         };
 
         //button wykonane
         const btWyk = document.createElement("button");
-        li.appendChild(btWyk);
+        li2.appendChild(btWyk);
         const btWykText = document.createTextNode('Wykonane');
         btWyk.appendChild(btWykText);
         // btWyk.setAttribute("class", "wyk");
 
         btWyk.onclick = function wyk() {
-            // li.dataset.status = "wykonano"
+             li2.dataset.status = "wykonano";
             
             this.style.backgroundColor = "green";
             
         }
-        
-
- 
-
     return false
     }
 
 }
+
 
 
 
