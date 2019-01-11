@@ -18,13 +18,25 @@
 .todo-element {
     
 }
+
 .todo-element-text {
+    
+}
+.poj-zad {
 
 }
-
-.todo-complete {
-    color:blue;
+.formZad {
+    
 }
-.todo-not-complete {
-    color:red;
+.listaZad {
+    
+}
+.btn-toggle-complete {
+    background-color: green;
+}
+.btn-toggle {
+
+}
+.btn-delete {
+    
 }

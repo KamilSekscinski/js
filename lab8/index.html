@@ -8,18 +8,25 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-    <form name="form">
-    <input name="text" id="tekst" type="text"> 
-    <input type="submit" value="Dodaj zadanie">
-            <!-- <button id="btn">Dodaj</button> -->
-    <ol id="lista">
-    </ol>
-    </form>
-    <h1>To-do List</h1>
-    <p>Sortowanie wg. statusu: <button id="zad_todo">Zadanie do zrobienia</button> 
-        <button id="zad_do">Zadanie wykonane</button></p>
-    <p>Sortowanie wg. opisu: <input name="text" id="tekst-sort" type="text"> </p>
-    <button>Sortowanie malejąco we. DATA-ID</button>
+    <h1>To-do Lista zadań do wykonania</h1>
+    
+    <section class='addTaskSection'>
+        <input id="add-input" type="text">
+    <button id="add-btn">Dodaj</button>
+
+    </section>
+    <section class='taskListSection'>
+        <ol id="lista">
+        </ol>
+
+    </section>
+    
+    <p>Sortowanie wg. statusu*: <button id="zad_todo">Zadanie do zrobienia</button> 
+        <button id="zad_do">Zadanie wykonane</button>
+    <br>
+    *Kliknięcie ponownie przycisku sortowania po statusie resetuje wynik</p>
+    <p>Sortowanie wg. opisu: <input name="text" id="search" type="text"> </p>
+    <!-- <button>Sortowanie malejąco we. DATA-ID</button> -->
     <p>Legenda:<button>Zadanie do zrobienia</button> <button class="legWyk">Zadanie wykonane</button> </p> 
     
     <!-- <div id="test" data-test-array="1,2,3,4,5" ></div>

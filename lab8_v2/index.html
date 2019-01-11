@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ćwiczenia 8 v2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <h1>To-do Lista zadań do wykonania v2</h1>
+    <!-- <input id="wykonaj" type="text">
+    <button id="btn">Dodaj</button> -->
+    <section class='formZad'>
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nazwa zadania...">
+                
+                <span class="input-group-btn">
+                    <button class="btn_form" type="submit">Dodaj zadanie</button>
+                </span>
+            </div>
+        </form>
+
+    </section>
+    <section class='listaZad'>
+        <ol id="lista">
+        </ol>
+
+        <!-- <div class="input-group">
+            
+            <input type="text" class="form-control" placeholder="Tytuł zadania..." value="Wynieść śmieci">
+            <span class="input-group-btn">
+                <button class="btn-toggle">wykonane/niewykonane</button>
+            </span>
+            <span class="input-group-btn">
+                <button class="btn-delete">Usuń</button>
+            </span>
+        </div> -->
+
+    </section>
+    
+    
+    
+    <p>Sortowanie wg. statusu: <button id="zad_todo">Zadanie do zrobienia</button> 
+        <button id="zad_do">Zadanie wykonane</button></p>
+    <p>Sortowanie wg. opisu: <input name="text" id="search" type="text"> </p>
+    <!-- <button>Sortowanie malejąco we. DATA-ID</button> -->
+    <p>Legenda:<button>Zadanie do zrobienia</button> <button class="legWyk">Zadanie wykonane</button> </p> 
+    
+    <!-- <div id="test" data-test-array="1,2,3,4,5" ></div>
+    <div class="hide" data-id="test">sdds</div>
+    <button id="test">Button</button> -->
+    
+    <script src="main.js"></script>
+</body>
+</html>
