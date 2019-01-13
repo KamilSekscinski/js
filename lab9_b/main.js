@@ -21,6 +21,6 @@ const $check = document.getElementById('check');
 
 $check.onclick = function () {
     let buttonOn = document.querySelectorAll('.yellow');
-    console.log(buttonOn);
     
+    console.log(buttonOn.length);
 }
