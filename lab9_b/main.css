@@ -1,0 +1,18 @@
+/**/
+.hide {
+    display: none;
+}
+
+.div1class {
+    background-color: gray;
+}
+
+.div2class  {
+    background-color: green;
+}
+.div3class  {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
