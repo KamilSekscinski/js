@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ćwiczenia 9 zad B</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <h1>Zadanie B</h1>
+    <!-- 1 -->
+    <p><b>1.</b> W dokumencie znajdują się trzy "włączniki" (odpowiednio ostylowane elementy 
+        DIV). Kliknięcie lewym przyciskiem myszy powoduje włączenie włącznika 
+        (zmienia się wtedy jego styl), kolejne kliknięcie - jego wyłączenie. 
+        Poniżej wyświetlany jest komunikat informujący ile włączników 
+        jest w danej chwili włączonych (np. "wszystkie włączone", "dwa włączone", etc.).
+    </p>
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+        <div class="div3">div3</div>
+        <br>
+        <span id="info-switch"></span>
+    <!-- 2 -->
+    <hr>
+    <p><b>2.</b> Stwórz tablicę o rozmiarze podanym przez użytkownika. 
+        Pierwsza wartość w tablicy powinna wynosić 3. Każda kolejna różni się 
+        od poprzedniej o losową wartość od -3 do 3. Wyświetl tablicę w dokumencie. 
+        Wyświetl informację ile jest w niej par takich samych elementów obok siebie 
+        (np. dla tablicy [3, 5, 5, 4, 2, 3, 3, 5] są to dwie pary: para piątek i para 
+        trójek).
+    </p>
+
+        <input id="arrlen-value" type="text" placeholder="Wpisz dlugość tablicy">
+        <button id="arrlen-value-btn">Generuj tablicę</button>
+        <br>
+        <span id="warn" class="warn"></span>
+        <div id="result-arr"></div>
+        <div id="result-arr-pair"></div>
+
+    <!-- 3 -->
+    <hr>
+    <p><b>3.</b> Stwórz listę (typu UL) wypełnioną losowymi "słowami" 
+        (słowo to po prostu ciąg od 4 do 10 losowych znaków). 
+        Jeśli klikniemy któreś ze słów, wyświetli się (w elemencie) 
+        informacja ile razy zostało ono kliknięte oraz o której godzinie 
+        (wraz z sekundami) kliknięto je ostatnio.
+    </p>
+
+        <ul class="ulWords">
+            <li>Styczeń</li>
+            <li>Luty</li>
+            <li>Marzec</li>
+            <li>Kwiecień</li>
+            <li>Czerwiec</li>
+            <li>Lipiec</li>
+            
+        </ul>
+    <!-- 4 -->
+    <hr>
+    <p><b>4.</b> Użytkownik podaje dwie wartości - liczbę wierszy i kolumn tabeli.
+         Program tworzy tabelę, następnie wypełnia ją losowymi wartościami 
+         (od 1 do 100). Największa wartość zostaje oznaczona kolorem czerwonym, 
+         a najmniejsza - zielonym. Wartości parzyste zostają wytłuszczone.
+    </p>
+
+        <input id="numRow" type="text" placeholder="Wpisz liczbę wierszy">
+        <input id="numCol" type="text" placeholder="Wpisz liczbę kolumn">
+        <button id="table-create-btn">Generuj tabelę</button>
+        <br>
+        <span id="warn2" class="warn"></span>
+
+        <table class="my-table"></table>
+
+    <!-- 5 -->
+    <hr>
+    <p><b>5.</b> Kolejka do elektronicznego systemu obsługi: do dyspozycji mamy 
+        dwa przyciski "nowy klient" (dodaje klienta do kolejki) oraz 
+        "obsłuż klienta" (klient pierwszy w kolejce zostaje obsłużony 
+        i usunięty). Poniżej wyświetlany jest stan kolejki (np. w postaci 
+        poziomej tabeli). Jeszcze niżej wyświetlana jest lista wykonanych 
+        operacji (najnowsza operacja znajduje się na górze): "klient X 
+        pojawił się o godzinie GG:MM:SS" albo "klient X został obsłużony 
+        o godzinie GG:MM:SS". Klienci są reprezentowani przez kolejne 
+        wartości całkowite rozpoczynając od 1. Maksymalny rozmiar kolejki 
+        to 10 - próba dodania nowego klienta skutkuje komunikatem 
+        "dla klienta X nie ma miejsca w kolejce".
+    </p>
+
+        <button id="btn-new-client">Nowy klient</button>
+        <button id="btn-compl-client">Obsłuż klienta</button>
+        <br>
+        <span><b>Stan kolejki:</b></span>
+        <table class="queue-table"></table>
+        <br>
+        <span><b>Lista wykonanych operacji:</b></span>
+        <table class="operation-table"></table>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
