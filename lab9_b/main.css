@@ -1,18 +1,36 @@
 /**/
-.hide {
-    display: none;
-}
-
-.div1class {
+.div1 {
     background-color: gray;
 }
 
-.div2class  {
+.div2 {
     background-color: green;
 }
-.div3class  {
-    background-color: blue;
+.div3 {
+    background-color: pink;
 }
 .yellow {
     background-color: yellow;
+}
+.warn {
+    color: red;
+    font-weight: bold;
+}
+.numMax {
+    background: red;
+    color:white;
+}
+.numMin {
+    background: green;
+    color:white;
+}
+.bold {
+    font-weight: bold;
+}
+.my-table {
+    border: 1px solid black;
+}
+p {
+    border: 1px solid blueviolet;
+    padding: 3px;
 }
