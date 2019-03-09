@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ćwiczenia 1 - SEM 2 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    
+    <div id="personsLi">
+        <ul v-for="person in persons">
+            <li>
+                {{person.name}} {{person.surname}}, wiek:{{person.age}} lat, email: {{person.email}}
+        
+                Adres:
+                    <span v-for="item in person.address">
+                        {{item}}
+                    </span>
+                
+                    <p v-if="person.friend">Znajomy: Tak</p>
+                    <p v-if="!person.friend">Znajomy: Nie</p>
+                Polubienia: {{person.likes}}
+                <p>Zainteresowania:</p>
+                <ul>
+                    
+                    <li v-for="item in person.interests">
+                        {{item}}
+                    </li>
+                </ul>
+                Zdjęcie:
+                <a href="{{person.photo}}"></a>
+                <!-- <img src="{{person.photo}}" alt=""> -->
+
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
