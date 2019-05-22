@@ -1,0 +1,22 @@
+/**/
+.editing {
+    background-color: skyblue;
+}
+.usunBtn {
+    margin-left: 10px;
+    border: 2px solid red;
+    /* background: red; */
+    /* color: white; */
+    background: white;
+    /* font-size: 15px; */
+    font-weight: bold
+}
+.editBtn {
+    margin-left: 20px;
+    /* background: blue; */
+    /* color: white; */
+    border: 2px solid blue;
+    background: white;
+    /* font-size: 15px; */
+    font-weight: bold
+}
