@@ -1,0 +1,29 @@
+.img {
+    height: 212px;
+    width: 300px;
+    background: url-image('deadline.gif') no-repeat center center;
+    background-size: contain;
+}
+
+.wrapper {
+    padding: 10px;
+}
+
+.autobox {
+    background-color: gray;
+    border: 1px solid black;
+    padding: 5px;
+    color: white;
+}
+
+
+
+.motobox {
+    background-color: black;
+    border: 1px solid yellow;
+    padding: 5px;
+    color: white;
+}
+
+
+
