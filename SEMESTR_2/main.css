@@ -1,0 +1,24 @@
+/**/
+#personsLi {
+    /* position: relative; */
+    list-style: none;
+    
+}
+#personBlock {
+    float: left;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 5px;
+    /* background:rgb(230, 233, 231); */
+    min-width: 600px;
+}
+
+
+.photo {
+    /* position: absolute; */
+    /* top: 100px; */
+    /* right: 30px; */
+    float: right;
+    padding-right: 10px;
+}
