@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ćwiczenia 3 - SEM 2 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    
+    <div data-id="myApp">
+
+            <h2>Dodawanie nowego pracownika</h2>
+            <form @submit.prevent="addNewData">
+                <label for="name">Imię</label>
+                <input name="name" id="name" v-model="newEmployee.name">
+                <label for="age">Wiek</label>
+                <input name="age" id="age" v-model="newEmployee.age">
+                <label for="salary">Wynagrodzenie</label>
+
+                <input name="salary" id="salary" v-model="newEmployee.salary">
+
+                <button v-if="!editing" type="submit" >Dodaj osobę</button>
+                <button v-if="editing" type="submit" >Zatwierdz edycje osoby</button>
+                <input v-if="editing" type="button" value="Anuluj" @click="cancel">
+            </form>
+
+         <h2>Lista pracowników</h2>
+        <ul>
+            <li v-for="employee in employees" :class="{editing:editing==employee}">
+                <p><b>Imie: </b> <span>{{employee.employee_name}}</span>
+                   <b>Wiek: </b> <span>{{employee.employee_age}}</span>
+                   <b>Wynagrodzenie: </b> <span>{{ employee.employee_salary }}</span>
+                   <b>ID: </b><span>{{ employee.id }}</span>
+                   <input type="button" value="Edytuj" @click="edit(employee)" 
+                   :disabled="editing!==null" class="editBtn">
+                   <input type="button" value="x" @click="removeData(employee)" class="usunBtn">
+                </p>
+                    
+            </li>
+            </ul>
+         
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
