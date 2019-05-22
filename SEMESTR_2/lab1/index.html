@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ćwiczenia 1 - SEM 2 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    
+    <div id="personsLi">
+       <h2>Lista osób</h2>
+            <p>Sortowanie rosnąco i malejąco po dowolnym atrybucie (np. imieniu lub nazwisku).</p>
+            <button @click="sortupName">Sortuj rosnąco po imieniu</button>
+            <button @click="sortdownName">Sortuj malejąco po imieniu</button>
+            <br>
+            <button @click="sortupSurname">Sortuj rosnąco po nazwisku</button>
+            <button @click="sortdownSurname">Sortuj malejąco po nazwisku</button>
+            <hr>
+            <p>Filtrowanie po dowolnym atrybucie (np. po imieniu wprowadzonym w polu tekstowym).</p>
+            
+            
+        
+            <input type="text" v-model="filterValue" >
+            <button @click="filter">Filtruj po imieniu</button>
+                
+            <h3>Dodaj nową osobę</h3>
+        
+            <!-- <input class="form-control w-25" placeholder="Filter By Name" v-model="searchClient" type="search"> -->
+        
+            <form @submit.prevent="addNewPerson">
+                <label for="nam">Imię</label>
+                <input v-model="newName" id="nam" required>
+                <label for="sur">Nazwisko</label>
+                <input v-model="newSurname" id="sur" required>
+                <label for="age">Wiek</label>
+                <input type="number" v-model="newAge" id="age" required>
+                <label for="email">Email</label>
+                <input v-model="newEmail" id="email" required>
+        
+                <label for="street">Ulica</label>
+                <input v-model="newStreet" id="street" required>
+                <label for="zipcode">Kod pocztowy</label>
+                <input v-model="newZip" id="zipcode" required> 
+                <label for="city">Miasto</label>
+                <input v-model="newCity" id="city" required>
+        
+                <label for="like">Polubienia</label>
+                <input type="number" v-model="newLikes" id="like" required>
+                <label for="friend">Bliski Przyjaciel</label>
+                <input type="checkbox" v-model="newFriend" id="friend" required>
+                
+                <label for="inter">Zainteresowania</label>
+                <input v-model.lazy="newInterests" id="inter" required>
+                <label for="photo">Podaj adres URL do zdjęcia</label>
+                <input v-model.lazy="newPhoto" id="photo" required>
+                <button @click="addNewPerson">Dodaj</button>
+              </form>
+              
+
+              <hr>
+
+            <li id="personBlock" v-for="(person, index) in persons">
+                    <div class="photo">
+                            <img v-bind:src ="person.photo" alt="">
+                    </div>
+                <div>
+                    {{index+1}}. {{person.name}} {{person.surname}}, 
+                        <br>wiek: {{person.age}} lat, 
+                        <br>email: {{person.email}}
+                        <br>
+                        Adres:
+                            <span v-for="item in person.address">
+                                {{item}}
+                            </span>
+                            <br>
+                        
+                                <input type="checkbox" v-model="person.friend">
+                            
+                                <span v-if="person.friend">Bliski przyjaciel: Tak</span>
+                                <span v-if="!person.friend">Bliski przyjaciel: Nie</span>
+                            
+                            
+                            <br>
+                        Polubienia: {{person.likes}} 
+                        <button @click="person.likes += 1">Daj lajka</button>
+                        <button @click="person.likes -= 1">Odejmij lajka</button>
+                        <p>Zainteresowania:</p>
+                        <ul>
+                            
+                            <li v-for="item in person.interests">
+                                {{item}}
+                            </li>
+                           
+                            
+                                <label for="inte">Dodaj nowe Zainteresowania</label>
+                                <input v-model.lazy="person.interests[person.interests.length]" id="inte">
+                                
+                              
+                        </ul>
+                        
+                </div>              
+               
+            </li>
+           
+    
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
