@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 3 Zad 3</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+      
+<!--      Zadanie 3. napisz funkcję, która podaną liczbę razy wykona rzut sześcienną kostką do gry i zwróci sumę wyrzuconych oczek-->
+       
+       <label for="numKost">Liczba rzutów kostką:</label>
+  <input id="numKost" type="text" />
+
+  <br>
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Rzuć kostką</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //Ćwiczenia 3: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (ale w zadaniach 4-6 zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przycisk do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+
+
+//3. napisz funkcję, która podaną liczbę razy wykona rzut sześcienną kostką do gry i zwróci sumę wyrzuconych oczek
+        
+        function rzucKostka() {
+  const $number = document.getElementById('numKost');
+  const $errors = document.getElementById('errors');
+  
+  let liczbaKost = $number.value;
+  
+			  if (liczbaKost.length===0) {
+				  $errors.textContent = 'Uzupełnij brakujące pola'
+			  
+			 }
+			  else {
+				  liczbaKost = parseFloat(liczbaKost);
+				  if (!isNaN(liczbaKost)) {
+					  if (liczbaKost > 0) {
+					  let sumOcz = 0;
+					  let wynik = '';
+					 for (let i=0; i < liczbaKost; i++) { 
+            
+            const rzuc = Math.floor(Math.random()*6)+1;
+            wynik += `Suma oczek z rzutu ${i+1} to ${rzuc} <br>`; 
+				sumOcz += rzuc;		 
+        }  
+        wynik += `<hr>Suma całkowita to: ${sumOcz}`;
+         return wynik;
+        }
+					  else {
+						  $errors.textContent = 'Wartość musi być większa od zera!';
+					  }
+        }
+				
+				  else {
+					  $errors.textContent = 'Wartość musi być liczbą!';
+				  }
+
+				  
+			  }
+		  }
+		 
+
+const $btnCheck = document.getElementById('check');
+const $result = document.getElementById('result');
+
+$btnCheck.onclick = function() {
+  $result.innerHTML = rzucKostka();
+	
+};
+        
+//4. napisz funkcję, która w podanej tablicy policzy liczbę wartości nieparzystych
+//5. napisz funkcję, która w podanej tablicy policzy sumę wartości mniejszych od x (gdzie x jest parametrem funkcji)
+//6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą
+        
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

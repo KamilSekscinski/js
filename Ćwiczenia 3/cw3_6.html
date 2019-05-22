@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 3 Zad 6</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+      
+<!--     Zad 6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą-->
+       
+      <label for="tabLen">Podaj rozmiar tablicy:</label>
+  <input id="tabLen" type="text" />
+      
+  <br>
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Losuj i Sprawdz</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //Ćwiczenia 3: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (ale w zadaniach 4-6 zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przycisk do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+		 
+//6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą
+		 
+		 		 function displayMess () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $tabLen = document.getElementById('tabLen');
+             
+             const maxRange = 30;
+			
+			 let tabLen = $tabLen.value;
+             
+			 
+			 if (tabLen.length===0 ) {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else {
+				 
+                 tabLen= parseInt(tabLen);
+                 
+                 
+				 if (!isNaN(tabLen)) {
+					 if (tabLen > 0){
+                         
+                    $errors.textContent = '';
+                     const arr = createTab(tabLen, maxRange);
+					 let maxEven = getMaxEven(arr);
+                     maxEven = maxEven === 0 ? 'brak' : maxEven;
+                         
+                console.log('arr', arr);
+                console.log('maxEven', maxEven);
+           
+                    return `Największa wartość parzysta z tablicy [${arr.toString()}] to ${maxEven}.`
+                         
+					 }
+					 else {
+						 $errors.textContent = 'Wartość musi być większa od zera!'
+					 }
+					 
+				 }
+				 else {
+					 $errors.textContent = 'Wartość musi być liczbą!'
+				 }
+				 
+			 }
+		 
+			 
+		 }
+		 
+		 function createTab (tabLen, maxRange) {
+			 
+			 let arr= [];
+			 for (tab=0; tab <tabLen; tab++) {
+				 const losNum = Math.floor(Math.random()*maxRange)+1;
+				 arr.push(losNum);
+			 }
+			 return arr;
+		 }
+		 
+        
+		 function getMaxEven (arr) {
+			 
+			 
+			 let max = Number.MIN_VALUE;
+
+          for (let i = 0; i < arr.length; i++) {
+              if ( arr[i]%2===0) {
+                  if (arr[i] > max ) {max = arr[i];}
+    
+              }
+                  
+            }
+          
+
+          return max;
+                 }
+        
+    
+		 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('result');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = displayMess();
+	
+		 };
+
+        
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

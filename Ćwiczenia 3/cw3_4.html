@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 3 Zad 4</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+      
+<!--     Zad 4. napisz funkcję, która w podanej tablicy policzy liczbę wartości nieparzystych-->
+       
+      <label for="rozTab">Podaj rozmiar tablicy:</label>
+  <input id="rozTab" type="text" />
+      
+  <br>
+
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Sprawdz</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //Ćwiczenia 3: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (ale w zadaniach 4-6 zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przycisk do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+
+        
+//4. napisz funkcję, która w podanej tablicy policzy liczbę wartości nieparzystych
+		 
+		 function sprNieparz () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $rozTab = document.getElementById('rozTab');
+			 let rozTab = $rozTab.value;
+			 
+			 if (rozTab.length===0) {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else {
+				 rozTab= parseFloat(rozTab);
+				 if (!isNaN(rozTab)) {
+					 if (rozTab > 0){
+						 const tablica = createTab(rozTab);
+					 const sumNuNiep = sumNumNieparz(tablica);
+					 return `Ilość liczb nieparzystych z tablicy [${tablica.toString()}] to ${sumNuNiep}.`
+					 }
+					 else {
+						 $errors.textContent = 'Wartość musi być większa od zera!'
+					 }
+					 
+				 }
+				 else {
+					 $errors.textContent = 'Wartość musi być liczbą!'
+				 }
+				 
+			 }
+			 
+			 
+			 
+		 }
+		 
+		 function createTab (rozTab) {
+			 
+			 let tablica= [];
+			 for (tab=0; tab <rozTab; tab++) {
+				 const losNum = Math.floor(Math.random()*20)+1;
+				 tablica.push(losNum);
+			 }
+			 return tablica;
+		 }
+		 
+		 function sumNumNieparz (tablica) {
+			 let sum = 0;
+
+  for (let i = 0; i < tablica.length; i++) {
+    if (tablica[i] % 2 !== 0) {
+      sum++;
+    }
+  }
+  
+  return sum;
+		 }
+		 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('result');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = sprNieparz();
+	
+		 };
+		 
+//5. napisz funkcję, która w podanej tablicy policzy sumę wartości mniejszych od x (gdzie x jest parametrem funkcji)
+//6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą
+        
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

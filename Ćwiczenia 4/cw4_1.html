@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 4 Zad 1</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+      
+<!--     Zad 1.1. napisz funkcję, która będzie wstawiać 3 elementy na końcu tablicy-->
+<!--         1.2. napisz funkcję, która będzie usuwać 2 elementy na końcu tablicy-->
+       
+      <label for="tabLen">Podaj rozmiar tablicy:</label>
+  <input id="tabLen" type="text" />
+    <br>
+     
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Losuj i Wykonaj</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //ćw 4: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przyciski do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+
+//1.1. napisz funkcję, która będzie wstawiać 3 elementy na końcu tablicy
+
+//		 
+//		 		 function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             
+//             const maxRange = 30;
+//			
+//			 let tabLen = $tabLen.value;
+//             
+//			 
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else {
+//				 
+//                 tabLen= parseInt(tabLen);
+//                 
+//                 
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 0){
+//                         
+//                    
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = addElemArr(arr2);
+//                    
+//                         
+//           
+//                    return 'Do tablicy dodano 3 elementy (cyfry 1,2,3) na końcu: ' + arr3;
+//                         
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od zera!'
+//					 }
+//					 
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }
+//		 
+//			 
+//		 }
+//		 
+//		 function createTab (tabLen, maxRange) {
+//			 
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 
+//        
+//		 function addElemArr (arr) {
+// 
+//            arr.push(1,2,3);
+//
+//             
+//         return arr;
+//                 }
+//        
+//    
+//		 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+
+  //*****************************************      
+        
+//1.2. napisz funkcję, która będzie usuwać 2 elementy na końcu tablicy
+        
+//        		 		 function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             
+//             const maxRange = 30;
+//			
+//			 let tabLen = $tabLen.value;
+//             
+//			 
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else {
+//				 
+//                 tabLen= parseInt(tabLen);
+//                 
+//                 
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 2){
+//                         
+//                    
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = delElemArr(arr2);
+//                    
+//                         
+//           
+//                    return 'Z tablicy usunięto 2 elementy z końca: ' + arr3;
+//                         
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od 2!'
+//					 }
+//					 
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }
+//		 
+//			 
+//		 }
+//		 
+//		 function createTab (tabLen, maxRange) {
+//			 
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 
+//        
+//		 function delElemArr (arr) {
+//             console.log(arr);
+//             
+// 
+//            arr.pop();
+//             arr.pop();
+//            
+//            
+//
+//             
+//         return arr;
+//                 }
+//        
+//    
+//		 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+ //*****************************************      
+        
+//1.3. napisz funkcję, która będzie wstawiać 1 element na początku tablicy
+        
+//        function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             const maxRange = 30;
+//            
+//			 let tabLen = $tabLen.value;
+//             
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else { 
+//                 tabLen= parseInt(tabLen);
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 0){
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = addElemFirst(arr2);
+//                    return 'Do tablicy dodano 1 element (cyfra 1) na początku: ' + arr3;  
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od zera!'
+//					 }
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }	 
+//		 }
+//		 function createTab (tabLen, maxRange) {
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 function addElemFirst (arr) {
+//            console.log(arr);
+//            arr.unshift(1);            
+//         return arr;
+//                }
+// 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+//*****************************************      
+                
+//1.4. napisz funkcję, która będzie usuwać 3 elementy na początku tablicy
+        
+//        function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             const maxRange = 30;
+//            
+//			 let tabLen = $tabLen.value;
+//             
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else { 
+//                 tabLen= parseInt(tabLen);
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 3){
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = delElemFirst(arr2);
+//                    return 'Z tablicy usunięto 3 elementy z początku: ' + arr3;  
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od 3!'
+//					 }
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }	 
+//		 }
+//		 function createTab (tabLen, maxRange) {
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 function delElemFirst (arr) {
+//            console.log(arr);
+//            arr.splice(0,3);            
+//         return arr;
+//                }
+// 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+//1.5. napisz funkcję, która odwróci kolejność tablicy
+        
+//        function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             const maxRange = 30;
+//            
+//			 let tabLen = $tabLen.value;
+//             
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else { 
+//                 tabLen= parseInt(tabLen);
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 0){
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = revArr(arr2);
+//                    return 'Odwrócono kolejność tablicy : ' + arr3;  
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od zera!'
+//					 }
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }	 
+//		 }
+//		 function createTab (tabLen, maxRange) {
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 function revArr (arr) {
+//            console.log(arr);
+//            arr.reverse();            
+//         return arr;
+//                }
+// 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+//1.6. napisz funkcję, która stworzy kopię tablicy
+//        
+//          function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             const maxRange = 30;
+//            
+//			 let tabLen = $tabLen.value;
+//             
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else { 
+//                 tabLen= parseInt(tabLen);
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 0){
+//                     const arr2 = createTab(tabLen, maxRange);
+//					 let arr3 = copyArr(arr2);  
+//                     arr3.pop();
+//                   
+//                    return `Bazowa tablica ${arr2} <br> Kopia tablicy po usunięciu ostatniego elementu : ` + arr3;  
+//					 }
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od zera!'
+//					 }
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }	 
+//		 }
+//		 function createTab (tabLen, maxRange) {
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 function copyArr (arr) {
+//            console.log(arr);
+//            let arr2 = arr.slice();            
+//         return arr2;
+//                }
+// 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+//1.7. napisz funkcję, która sprawdzi czy w podanej tablicy występuje co najmniej jedna wartość parzysta oraz czy jest większa od 2,
+//       
+//          function displayMessage () {
+//			 
+//  			 const $errors = document.getElementById('errors');
+//			 const $tabLen = document.getElementById('tabLen');     
+//             const maxRange = 30;
+//            
+//			 let tabLen = $tabLen.value;
+//             
+//			 if (tabLen.length===0 ) {
+//				 $errors.textContent = 'Uzupełnij brakujące pola'
+//			 }
+//			 else { 
+//                 tabLen= parseInt(tabLen);
+//				 if (!isNaN(tabLen)) {
+//					 if (tabLen > 0){
+//                     const arr2 = createTab(tabLen, maxRange);
+//						let parzysta2 = arr2.some(parzysta);
+//						 
+//						  
+//                    return `W tablicy ${arr2} jest liczba parzysta i większa od 2: ${parzysta2}` ;  				             
+//					 }
+//	 
+//					 else {
+//						 $errors.textContent = 'Wartość musi być większa od zera!'
+//					 }
+//				 }
+//				 else {
+//					 $errors.textContent = 'Wartość musi być liczbą!'
+//				 }
+//				 
+//			 }	
+//			 }
+//		 
+//		 
+//		 function createTab (tabLen, maxRange) {
+//			 let arr= [];
+//			 for (tab=0; tab <tabLen; tab++) {
+//				 const losNum = Math.floor(Math.random()*maxRange)+1;
+//				 arr.push(losNum);
+//			 }
+//			 return arr;
+//		 }
+//		 function parzysta (value) {
+//           
+//                     return (value%2 ==0 && value>2);
+//                }
+// 
+//		 const $btnCheck = document.getElementById('check');
+//		 const $result = document.getElementById('result');
+//
+//		 $btnCheck.onclick = function() {
+//			 $result.innerHTML = displayMessage();
+//	
+//		 };
+        
+//1.8. napisz funkcję, która posortuje wartości w tablicy od najmniejszej do największej oraz od największej do najmniejsze. Sposób sortowania uzależnij od parametru funkcji		
+		 
+		        function displayMessage () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $tabLen = document.getElementById('tabLen');     
+             const maxRange = 30;
+            
+			 let tabLen = $tabLen.value;
+             
+			 if (tabLen.length===0 ) {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else { 
+                 tabLen= parseInt(tabLen);
+				 if (!isNaN(tabLen)) {
+					 if (tabLen > 0){
+                     const arr2 = createTab(tabLen, maxRange);
+						 console.log(arr2);
+						 
+						 let arr3 = arr2.slice();
+						let wiekszMniej = arr3.sort(function (a,b) {
+							
+							return b-a;
+						});
+						 let arr4 = arr2.slice();
+						 let mniejWieksz = arr4.sort(function (a,b) {
+							
+							return a-b;
+						});
+						  
+                    return `Tablica ${arr2} posortowana od największej do najmniejszej: ${wiekszMniej}<hr>
+Tablica ${arr2} posortowana od najmniejszej do największej: ${mniejWieksz}` ;  				             
+					 }
+	 
+					 else {
+						 $errors.textContent = 'Wartość musi być większa od zera!'
+					 }
+				 }
+				 else {
+					 $errors.textContent = 'Wartość musi być liczbą!'
+				 }
+				 
+			 }	
+			 }
+		 
+		 
+		 function createTab (tabLen, maxRange) {
+			 let arr= [];
+			 for (tab=0; tab <tabLen; tab++) {
+				 const losNum = Math.floor(Math.random()*maxRange)+1;
+				 arr.push(losNum);
+			 }
+			 return arr;
+		 }
+		 function sort (value) {
+           
+                     return (value%2 ==0 && value>2);
+                }
+ 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('result');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = displayMessage();
+	
+		 };
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

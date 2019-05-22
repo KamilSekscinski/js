@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 2</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <!--zadanie 7 -->
+		
+		<form >
+		<label>Wpisz numer od 1 do 100:</label>
+			<input id="guess" type="text" size="8"><br>
+			<input type="button" value="Sprawdz" onClick="checkguess()"><br>
+			<input id="output" type="text" size="40"><br>
+		</form>
+      
+        
+    <script>
+        
+        
+//      1.Wylosuj trzy liczby z przedziału 0-19 a następnie wypisz je w kolejności od najmniejszej do największej (np. 2 4 4 - kolejność niemalejąca).
+
+//		 const x= parseInt(Math.floor(Math.random()*19));
+//		 const y= parseInt(Math.floor(Math.random()*19));
+//		 const z= parseInt(Math.floor(Math.random()*19));
+//		 
+//		 if (x<=y && x<=z) {
+//			 if (y<=z) {
+//				 console.log(x,y,z);
+//			 }
+//		 
+//		 else {
+//			 console.log(x,z,y);
+//		  }
+//		 }
+//		 
+//		 if (y<=x && y<=z) {
+//			 if (x<=z) {
+//				 console.log(y,x,z);
+//			 }
+//		 
+//		 else {
+//			 console.log(y,z,x);
+//		  }
+//		 }
+//		 
+//		 if (z<=x && z<=y) {
+//			 if (x<=y) {
+//				 console.log(z,x,y);
+//			 }
+//		 
+//		 else {
+//			 console.log(z,y,x);
+//		  }
+//		 }
+        
+        
+//      2.Symulator rzutów kością: rzucaj kostką (losuj liczbę od 1 do 6), dopóki nie wypadnie 6. Losowane wartości wypisuj na ekranie.
+
+//        let los;
+//        
+//        
+//        do {
+//            los = Math.round(Math.random()*6);
+//            
+//            console.log("Wylosowano " + los);
+//        } while(los!=6);
+//            
+//            console.log("Udało się!")
+
+        
+//      3.Wypisz wszystkie liczby od 1 do 100, które są podzielne przez 3, ale nie są podzielne przez 5.
+
+//        for (let x=1; x<=100; ++x) { 
+//			  if (x%3==0 && x%5!=0)
+//  
+//            (console.log(x)) 
+//        }
+        
+//      4.Stwórz tablicę o podanym przez użytkownika rozmiarze, wypełnij ją losowymi liczbami parzystymi z przedziału od 1 do 100, a następnie wypisz całość na ekranie.
+    
+//        const tab_roz = prompt("Podaj długość tablicy");
+//        
+//        let tablica = [];
+//        
+//        for (let i=0; i < tab_roz; i++) { 
+//            
+//            let losowa = Math.floor(Math.random()*50);
+//            tablica[i] = 2*losowa;   
+//        }
+//        
+//        document.getElementById("app").innerHTML = tablica;
+//     
+        
+//      5.Wczytaj zdanie od użytkownika, a następnie wypisz wszystkie słowa w odwrotnej kolejności.
+
+//		 const zd_tab = prompt("Wpisz zdanie");
+// 		
+//		const tablica = zd_tab.split(" ");
+//			tablica.reverse();
+//			console.log(tablica);
+//		 
+//      6.Wczytaj od użytkownika tablicę liczb (jako pojedynczy tekst - wartości oddzielane przecinkami), wypisz ją na ekranie, a następnie każdą liczbę większą od 10 podziel przez 10 i ponownie wypisz całość na ekranie.
+		 
+
+//		 const zd_tab = prompt("Wpisz kilka liczb oddzielonych przecinkami");
+//
+//		 let tablica = zd_tab.split(",");
+//
+//		 console.log(tablica);
+//		 
+//		 for (let i = 0; i<=tablica.length; i++) {
+//			 if (tablica[i]>10) {
+//				 console.log(tablica[i]/10);
+//			 }
+//		 }
+//			 
+		 
+//      7.Gra w zgadywanie: komputer wymyśla (losuje z przedziału 1-100) liczbę, a człowiek musi ją zgadnąć. Po każdej nieprawidłowej odpowiedzi, komputer podpowiada: "mniej" lub "więcej". Gra trwa do czasu, aż użytkownik poda prawidłową odpowiedź.
+		 
+		   const theNumber = Math.floor(Math.random()*100+1);
+			function checkguess()
+			 {
+				const guess = document.getElementById('guess');
+				const output = document.getElementById('output');
+				const myNumber = guess.value;
+				 
+				 if (myNumber < theNumber) {
+					 output.value = "więcej";
+				 }
+			 
+			 else if (myNumber > theNumber) {
+				 output.value = "mniej";
+			 }
+		    else if (myNumber == theNumber)
+				 {
+					 output.value = "zgadleś!";
+					 
+				 }
+			 } 
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

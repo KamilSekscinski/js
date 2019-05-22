@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 4 dla chętnych zad 1</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+<!--
+      1.Pozwól użytkownikowi na wprowadzenie (przy pomocy pól tekstowych) dwóch liczb oraz znaku działania (dozwolone działania to +, -, *, / oraz %). Po naciśnięciu przycisku "oblicz", wyświetlony zostaje wynik działania (lub komunikat o błędzie, jeśli dane wejściowe nie są prawidłowe).
+-->
+       
+      <label for="liczba1">Wpisz liczbę 1:</label>
+  <input id="liczba1" type="text" />
+    <br>
+    <label for="liczba2">Wpisz liczbę 2:</label>
+  <input id="liczba2" type="text" />
+    <br>
+     <label for="dzialanie">Jakie działanie (+ - * / %):</label>
+  <input id="dzialanie" type="text" />
+    <br>
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Oblicz</button>
+		  
+        <br><span id="result"></span>
+        
+        <div id="wynik"></div>
+         
+    <script>
+        //Ćwiczenia 4 dla chętnych:
+        //1.Pozwól użytkownikowi na wprowadzenie (przy pomocy pól tekstowych) dwóch liczb oraz znaku działania (dozwolone działania to +, -, *, / oraz %). Po naciśnięciu przycisku "oblicz", wyświetlony zostaje wynik działania (lub komunikat o błędzie, jeśli dane wejściowe nie są prawidłowe).
+	 
+		        function kalkulator () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $liczba1 = document.getElementById('liczba1');
+             const $liczba2 = document.getElementById('liczba2');
+            const $dzialanie = document.getElementById('dzialanie');  
+            
+			 let liczba1 = $liczba1.value;
+            let liczba2 = $liczba2.value;
+            let dzialanie = $dzialanie.value;
+					 if (liczba1.length===0 || liczba2.length===0 || dzialanie.length===0 )  {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else {
+				 
+                 liczba1= parseFloat(liczba1);
+                 liczba2= parseFloat(liczba2);
+                 
+                 
+				 if (!isNaN(liczba1) && !isNaN(liczba2)) {
+					 
+                         
+                        $errors.textContent ="";
+  
+					 const wynik = dzialanieFun(dzialanie,liczba1,liczba2);
+					 return `Wynik to ${wynik}`
+                    
+ 		 
+					 
+					 
+				 }
+				 else {
+					 $errors.textContent = 'Wartość musi być liczbą!'
+				 }
+				 
+			 }
+        }
+        
+                function dzialanieFun (value,a,b) {
+          switch(value) {
+            case "+":
+                  return a+b;
+                  break;
+            case "-":
+                  return a-b;
+                  break;
+            case "*":
+                  return a*b;
+                  break;
+            case "/":
+                  return a/b;
+                  break;
+            case "%":
+                  return a%b;
+                  break;
+            default:
+              return 'Niepoprawna wartość działania';
+          }
+        }
+
+ 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('wynik');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = kalkulator();
+	
+		 };
+		 
+ //2.Dokument zawiera trzy przyciski: "papier", "nożyce" oraz "kamień". Po naciśnięciu jednego z nich, komputer losuje swój wybór, a następnie wyświetla wynik (nożyce wygrywają z papierem, papier z kamieniem, a kamień z nożycami). Kolejne naciśnięcie to kolejna próba, w dokumencie wyświetlana jest liczba zwycięstw gracza i komputera, oraz liczba remisów.
+        
+//3.Napisz funkcję, która stworzy tablicę o podanym rozmiarze, a następnie wypełni ją kolejnymi wartościami rzeczywistymi z przedziału [0, 1] (np. dla rozmiaru 6 stworzona zostanie [0, 0.2, 0.4, 0.6, 0.8, 1]). Następnie wyświetl stworzoną tablicę w dokumencie.
+        
+//4.Napisz funkcję, która policzy sumę wartości od a do b (podane parametry), np. dla a = 3 i b = 6 wynik wynosi 3+4+5+6=18. Następnie stwórz interfejs w dokumencie, który pozwoli na wprowadzenie wartości a, b i wyświetlenie wyniku.
+        
+//5.Symulacja konta bankowego - w dokumencie wyświetlany jest stan konta (początkowo 0) oraz pole tekstowe i dwa przyciski "wpłać" i "wypłać". Użytkownik może wprowadzić w polu kwotę, a następnie naciskając przycisk dokonać wpłaty lub wypłaty (powoduje to odpowiednio zwiększenie lub zmniejszenie stanu konta). Sprawdzaj poprawność wprowadzanych wartości.
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

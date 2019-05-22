@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 3</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <!--zadanie 1 - napisz funkcję, która oblicza cenę brutto towaru (po podaniu ceny netto i stawki vat w procentach -->
+		
+<!--
+  <label for="price-net">Cena netto:</label>
+  <input id="price-net" type="text" />
+  <br>
+  <br>
+  
+  <label for="tax">Podatek VAT:</label>
+  <input id="tax" type="text" />
+  <span>Dozwolone liczby to: 23, 8, 5, 0</span>
+  <br>
+  <br>
+  <span id="errors" class="error"></span>
+  <br>
+  <br>
+  <button id="price-calc" type="button">Oblicz</button>
+  Wynik to: <span id="result"></span>
+-->
+      
+      <!--zadanie 2 - napisz funkcję, która sprawdza czy podana liczba jest parzysta-->
+      
+<!--
+<label for="number">Wpisz liczbę do sprawdzenia:</label>
+  <input id="number" type="text" />
+  <br>
+  
+  <span id="errors" class="error"></span>
+  <br>
+  <br>
+  <button id="check" type="button">Sprawdź</button>
+  <span id="result"></span>
+-->
+      
+      
+<!--      Zadanie 3. napisz funkcję, która podaną liczbę razy wykona rzut sześcienną kostką do gry i zwróci sumę wyrzuconych oczek-->
+       
+       <label for="numKost">Liczba rzutów kostką:</label>
+  <input id="numKost" type="text" />
+
+  <br>
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Rzuć kostką</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //Ćwiczenia 3: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (ale w zadaniach 4-6 zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przycisk do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+
+//1. napisz funkcję, która oblicza cenę brutto towaru (po podaniu ceny netto i stawki vat w procentach)
+        
+//        function calcPriceWithTax() {
+//  const $priceNet = document.getElementById('price-net');
+//  const $taxValue = document.getElementById('tax');
+//  const $errors = document.getElementById('errors');
+//  
+//  let priceNet = $priceNet.value;
+//  let taxValue = $taxValue.value;
+//
+//  if (priceNet.length === 0 || taxValue.length === 0) {
+//    $errors.textContent = 'Uzupełnij brakujące pola!';
+//  }
+//  else {
+//    priceNet = parseFloat(priceNet);
+//    taxValue = parseInt(taxValue);
+//    
+//    if (!isNaN(priceNet) && !isNaN(taxValue)) {
+//      const taxVal = tax(taxValue);
+//      
+//      if (typeof taxVal !== "string") {
+//        $errors.textContent = "";
+//        const priceWithTax = priceNet * taxVal;
+//        if (taxVal !== 1) {
+//          return (priceNet + priceWithTax).toFixed(2);
+//        } else {
+//          return priceNet.toFixed(2);
+//        }
+//      } else {
+//        $errors.textContent = taxVal;
+//      }
+//
+//    } else {
+//      $errors.textContent = 'Wartości muszą być liczbami!';
+//    }
+//  }
+//}
+//
+//function tax(value) {
+//  switch(value) {
+//    case 23:
+//    case 8:
+//    case 5:
+//      return taxCalc(value);
+//      break;
+//    case 0:
+//      return 1;
+//      break;
+//    default:
+//      return 'Niepoprawna wartość podatku';
+//  }
+//}
+//
+//function taxCalc(value) {
+//  return value / 100;
+//}
+//
+//
+//const $btnCalcResults = document.getElementById('price-calc');
+//const $result = document.getElementById('result');
+//
+//$btnCalcResults.onclick = function() {
+//  $result.textContent = calcPriceWithTax();
+//};
+
+
+//2. napisz funkcję, która sprawdza czy podana liczba jest parzysta
+        
+//                function checkNumPar() {
+//  const $number = document.getElementById('number');
+//  const $errors = document.getElementById('errors');
+//  
+//  let myNumber = $number.value;
+//  
+//
+//  if (myNumber.length === 0) {
+//    $errors.textContent = 'Uzupełnij brakujące pola!';
+//  }
+//  else {
+//    myNumber = parseFloat(myNumber);
+//    
+//    if (!isNaN(myNumber) ) {
+//     $errors.textContent = "";
+//     return sprPar(myNumber) ? 'Liczba jest parzysta':'Liczba jest nieparzysta';
+//
+//    } else {
+//      $errors.textContent = 'Wartości muszą być liczbami!';
+//    }
+//  }
+//}
+//
+//    function sprPar(value) {
+//        if (value%2==0) {
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//const $btnCheck = document.getElementById('check');
+//const $result = document.getElementById('result');
+//
+//$btnCheck.onclick = function() {
+//  $result.textContent = checkNumPar();
+//};
+        
+//3. napisz funkcję, która podaną liczbę razy wykona rzut sześcienną kostką do gry i zwróci sumę wyrzuconych oczek
+        
+        function rzucKostka() {
+  const $number = document.getElementById('numKost');
+  const $errors = document.getElementById('errors');
+  
+  let liczbaKost = $number.value;
+  
+			  if (liczbaKost.length===0) {
+				  $errors.textContent = 'Uzupełnij brakujące pola'
+			  
+			 }
+			  else {
+				  liczbaKost = parseFloat(liczbaKost);
+				  if (!isNaN(liczbaKost)) {
+					  if (liczbaKost > 0) {
+					  let sumOcz = 0;
+					  let wynik = '';
+					 for (let i=0; i < liczbaKost; i++) { 
+            
+            const rzuc = Math.floor(Math.random()*6)+1;
+            wynik += `Suma oczek z rzutu ${i+1} to ${rzuc} <br>`; 
+				sumOcz += rzuc;		 
+        }  
+        wynik += `<hr>Suma całkowita to: ${sumOcz}`;
+         return wynik;
+        }
+					  else {
+						  $errors.textContent = 'Wartość musi być większa od zera!';
+					  }
+        }
+				
+				  else {
+					  $errors.textContent = 'Wartość musi być liczbą!';
+				  }
+
+				  
+			  }
+		  }
+		 
+
+const $btnCheck = document.getElementById('check');
+const $result = document.getElementById('result');
+
+$btnCheck.onclick = function() {
+  $result.innerHTML = rzucKostka();
+	
+};
+        
+//4. napisz funkcję, która w podanej tablicy policzy liczbę wartości nieparzystych
+//5. napisz funkcję, która w podanej tablicy policzy sumę wartości mniejszych od x (gdzie x jest parametrem funkcji)
+//6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą
+        
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

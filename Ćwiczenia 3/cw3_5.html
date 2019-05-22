@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 3 Zad 5</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+      
+<!--     Zad 5. napisz funkcję, która w podanej tablicy policzy sumę wartości mniejszych od x (gdzie x jest parametrem funkcji)-->
+       
+      <label for="tabLen">Podaj rozmiar tablicy:</label>
+  <input id="tabLen" type="text" />
+      
+  <br>
+  <label for="lessFrom">Liczby mniejsze od:</label>
+  <input id="lessFrom" type="text" />
+  <br>
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Losuj i Sprawdz</button>
+		  
+        <br><span id="result"></span>
+         
+    <script>
+        //Ćwiczenia 3: Do każdego z poniższych zadań dodaj interfejs w HTML - pola tekstowe na podanie parametrów (ale w zadaniach 4-6 zawartość tablicy generuj losowo, od użytkownika wczytując jedynie jej rozmiar), przycisk do uruchomienia funkcji oraz elementy div na wypisanie rezultatu jej działania.
+		 
+//5. napisz funkcję, która w podanej tablicy policzy sumę wartości mniejszych od x (gdzie x jest parametrem funkcji)
+		 
+		 		 function displayMess () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $tabLen = document.getElementById('tabLen');
+             const $lessFrom = document.getElementById('lessFrom');
+             const maxRange = 30;
+			
+			 let tabLen = $tabLen.value;
+             let lessFrom = $lessFrom.value;
+			
+			 
+			 if (tabLen.length===0 || lessFrom.length===0) {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else {
+				 
+                 tabLen= parseFloat(tabLen);
+                 lessFrom = parseFloat(lessFrom);
+                 
+				 if (!isNaN(tabLen) && !isNaN(lessFrom)) {
+					 if (tabLen > 0 && lessFrom>0){
+                         
+                         if (lessFrom<=maxRange) {
+                             const arr = createTab(tabLen, maxRange);
+					 const sum = sumOddNum(arr,lessFrom);
+					 return `Suma liczb mniejszych od ${lessFrom} z tablicy [${arr.toString()}] to ${sum}.`
+                         }
+                         else {
+                             $errors.innerHTML = `Wartość ${lessFrom} musi być mniejsze lub równe ${maxRange}!`
+                         }
+                         
+						 
+					 }
+					 else {
+						 $errors.textContent = 'Wartość musi być większa od zera!'
+					 }
+					 
+				 }
+				 else {
+					 $errors.textContent = 'Wartość musi być liczbą!'
+				 }
+				 
+			 }
+			 
+			 
+			 
+		 }
+		 
+		 function createTab (tabLen, maxRange) {
+			 
+			 let arr= [];
+			 for (tab=0; tab <tabLen; tab++) {
+				 const losNum = Math.floor(Math.random()*maxRange)+1;
+				 arr.push(losNum);
+			 }
+			 return arr;
+		 }
+		 
+		 function sumOddNum (arr, maxRange) {
+			 
+			 
+			 let sum = 0;
+
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < maxRange ) {
+              sum+=arr[i];
+            }
+          }
+
+          return sum;
+                 }
+		 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('result');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = displayMess();
+	
+		 };
+//6. napisz funkcję, która w podanej tablicy znajdzie największą wartość parzystą
+        
+		 	
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>

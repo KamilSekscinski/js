@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 2 extra ćw 1</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <!--zadanie 1 
+        Przeliczanie jednostek z cm na cale i z cali na cm - program prosi użytkownika o wprowadzenie pewnej wartości, następnie pyta o kierunek przeliczania, po czy wypisuje wynik.
+        -->
+		
+		<form >
+		<label>Wpisz wartość do przeliczenia:</label>
+			<input id="guess" type="text" size="8"><br>
+			<input type="button" value="CM na Cale" onClick="cm()"><br>
+			<input type="button" value="Cale na cm" onClick="cal()"><br>
+			<input id="output" type="text" size="40"><br>
+		</form>
+      
+        
+    <script>
+        
+        
+//      1.Przeliczanie jednostek z cm na cale i z cali na cm - program prosi użytkownika o wprowadzenie pewnej wartości, następnie pyta o kierunek przeliczania, po czy wypisuje wynik.
+		 
+		 
+			function cm()
+			 {
+				const guess = document.getElementById('guess');
+				const output = document.getElementById('output');
+				
+				 let liczba = guess.value;
+				 liczba = parseFloat(liczba);
+				 
+				 output.value = liczba*0.39370 + ' cala';
+	
+			 }
+		 
+					function cal()
+			 {
+				const guess = document.getElementById('guess');
+				const output = document.getElementById('output');
+				
+				 let liczba = guess.value;
+				 liczba = parseFloat(liczba);
+				 
+				 output.value = liczba*2.54 + ' cm';
+	
+			 }
+		 
+    </script>
+        
+
+    </body>
+</html>

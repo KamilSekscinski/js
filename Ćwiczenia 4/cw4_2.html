@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Ćwiczenia 4 Zad 2</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+      
+<!--
+      
+Zad 2.1. zamiana tekstu na tablice, gdzie elementami w niej są pojedyncze litery z tekstu 
+//2.2. sortowanie tablicy w kolejności alfabetycznej
+//2.3. wyświetlenie drugiego elementu z tablicy
+-->
+       
+      <label for="tekst">Wpisz tekst:</label>
+  <input id="tekst" type="text" />
+    <br>
+     
+  
+  <span id="errors" class="error"></span>
+  <br>
+
+  <button id="check" type="button">Wyświetl i przetwórz</button>
+		  
+        <br><span id="result"></span>
+        
+        <div id="wynik"></div>
+         
+    <script>
+        //ćw 4: 2. Stwórz interfejs w HTML, który umożliwi użytkownikowi wpisanie tekstu oraz przycisk do uruchomienia funkcji do wyświetlania treści w elemencie div. Funkcja powinna wykonać następujące operacje:
+//2.1. zamiana tekstu na tablice, gdzie elementami w niej są pojedyncze litery z tekstu
+        //2.2. sortowanie tablicy w kolejności alfabetycznej
+//2.3. wyświetlenie drugiego elementu z tablicy
+		 
+		        function displayMessage () {
+			 
+  			 const $errors = document.getElementById('errors');
+			 const $tekst = document.getElementById('tekst');     
+             const maxRange = 30;
+            
+			 let tekst = $tekst.value;
+					 if (tekst.length===0 ) {
+				 $errors.textContent = 'Uzupełnij brakujące pola'
+			 }
+			 else {
+					  
+					 let textArr = [];
+					textArr = Array.from(tekst);
+					  console.log (tekst);
+					  console.log (textArr);
+                     console.log(textArr[1]);
+                 let el4 = textArr.slice();
+                 let el3 = el4.sort();
+                    const el2 = textArr[2];
+				  return `Zamiana tekstu na tablice, sortowanie alfabetyczne ${textArr}<br> element 2 z tablicy ${el2} <br> sortowanie ${el4}`;
+			 }
+				  }
+
+ 
+		 const $btnCheck = document.getElementById('check');
+		 const $result = document.getElementById('wynik');
+
+		 $btnCheck.onclick = function() {
+			 $result.innerHTML = displayMessage();
+	
+		 };
+		 
+ 
+		 
+		 
+    </script>
+        
+
+    </body>
+</html>
